@@ -1,0 +1,31 @@
+﻿{
+    "$schema": "https://raw.githubusercontent.com/beat-saber-modding-group/BSIPA-MetadataFileSchema/master/Schema.json",
+    "id": "CenterDistanceCounter",
+    "name": "CenterDistanceCounter",
+    "author": "Rakkyo",
+    "version": "0.0.1",
+    "description": "Adds a counter showing the average of cut distance to center",
+    "gameVersion": "1.16.2",
+    "dependsOn": {
+        "Counters+": "^2.2.1",
+        "BeatSaberMarkupLanguage": "^1.5.3",
+        "BSIPA": "^4.1.6"
+    },
+    "features": {
+        "CountersPlus.CustomCounter": {
+            "Name": "Center Distance Counter",
+            "Description": "Shows the average of cut distance to center",
+            "CounterLocation": "CenterDistanceCounter.CenterDistanceCounter",
+            "ConfigDefaults": {
+                "Enabled": true,
+                "Position": "AboveCombo",
+                "Distance": 0
+            },
+            "BSML": {
+                "Resource": "CenterDistanceCounter.settings.bsml",
+                "Host": "CenterDistanceCounter.SettingsHandler",
+                "Icon": "CenterDistanceCounter.Images.icon.png"
+            }
+        }
+    }
+}
