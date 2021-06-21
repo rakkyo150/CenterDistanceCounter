@@ -2,7 +2,7 @@
 
 # CenterDistanceCounter
 
-This is a custom counter for [CountersPlus](https://github.com/rynan4818/tournament_overlay) that displays the average and standard deviation of the distance between the center of the slashed notes and the saber in cm.
+This is a custom counter for [CountersPlus](https://github.com/Caeden117/CountersPlus) that displays the average and standard deviation of the distance between the center of the slashed notes and the saber in cm.
 
 ![sample](Images/sample.jpg)
 
@@ -14,7 +14,7 @@ This is a custom counter for [CountersPlus](https://github.com/rynan4818/tournam
 - [CounterPlus](https://github.com/Caeden117/CountersPlus)
 
 ## How to install
-1. download CenterDistanceCounter.dll from [Releases]()
+1. download CenterDistanceCounter.dll from [Releases](https://github.com/rakkyo150/CenterDistanceCounter/releases)
 2. Add CenterDistanceCounter.dll to the Plugins folder under the Beat Saber installation folder.
 
 For the Steam version of Beat Saber, the location of the Plugin folder is<br>
@@ -34,7 +34,7 @@ The following is a description of each setting item and its contents. <br>
 |:---|:---|
 |SeparateSaber|Whether to separate left and right sabers or not|
 |DecimalPrecision|How many decimal places to display|
-|CounterType|Choose from both distance and standard deviation, distance only, or standard deviation only|
+|CounterType|Selectable from both distance and standard deviation, distance only, or standard deviation only|
 |EnableLabel|Whether to display "Center Distance Counter" above the counter|
 |LabelFontSize|What is the font size of the "Center Distance Counter" displayed above the counter|
 |FigureFontSize|What is the font size of the counter|
