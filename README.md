@@ -2,7 +2,7 @@
 
 # CenterDistanceCounter
 
-斬ったノーツの中心とセイバーの距離の平均と標準偏差をcm単位で表示する[CountersPlus](https://github.com/rynan4818/tournament_overlay)のカスタムカウンターです。
+斬ったノーツの中心とセイバーの距離の平均と標準偏差をcm単位で表示する[CountersPlus](https://github.com/Caeden117/CountersPlus)のカスタムカウンターです。
 
 ![サンプル](Images/sample.jpg)
 
