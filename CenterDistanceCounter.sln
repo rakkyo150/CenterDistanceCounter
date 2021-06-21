@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README_EN.md = README_EN.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{30A65BC0-8D4E-4B8E-9B20-11DCC7DF84C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{5CA3EB1F-0C22-423E-9733-58DF6C86F36F}"
 	ProjectSection(SolutionItems) = preProject
 		Images\sample.jpg = Images\sample.jpg
 	EndProjectSection
@@ -31,7 +31,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{30A65BC0-8D4E-4B8E-9B20-11DCC7DF84C7} = {475F572B-E019-49C9-8D17-23D6CE30996D}
+		{5CA3EB1F-0C22-423E-9733-58DF6C86F36F} = {475F572B-E019-49C9-8D17-23D6CE30996D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {743A0E58-E368-4E63-B861-409A1ECB5C08}
