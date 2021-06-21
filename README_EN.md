@@ -1,4 +1,4 @@
-## “ú–{Œê”ÅREADME‚Í[‚±‚¿‚ç](README.md)
+## æ—¥æœ¬èªç‰ˆREADMEã¯[ã“ã¡ã‚‰](README.md)
 
 # CenterDistanceCounter
 
