@@ -34,7 +34,7 @@ Beat Saber\UserData\CenterDistanceCounter.json<br>
 |:---|:---|
 |SeparateSaber|左右のセイバーに分けて表示するか否か|
 |DecimalPrecision|小数点以下何桁までを表示するか|
-|CounterType|距離と標準偏差の両方、距離のみ、標準偏差のみから選ぶ|
+|CounterType|距離と標準偏差の両方、距離のみ、標準偏差のみから選択可|
 |EnableLabel|カウンターの上に表示される"Center Distance Counter"の表示をするかどうか|
 |LabelFontSize|カウンターの上に表示される"Center Distance Counter"のフォントサイズをどうするか|
 |FigureFontSize|カウンターのフォントサイズをどうするか|
