@@ -14,7 +14,7 @@
 - [CounterPlus](https://github.com/Caeden117/CountersPlus)
 
 ## インストール方法
-1. [Releases]()からCenterDistanceCounter.dllをダウンロード
+1. [Releases](https://github.com/rakkyo150/CenterDistanceCounter/releases)からCenterDistanceCounter.dllをダウンロード
 2. CenterDistanceCounter.dllをBeat Saberのインストールフォルダ下のPluginsフォルダに追加
 
 Steam版Beat Saberの場合、Pluginフォルダの場所は<br>
