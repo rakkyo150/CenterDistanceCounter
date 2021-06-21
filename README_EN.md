@@ -2,7 +2,7 @@
 
 # CenterDistanceCounter
 
-This is a custom counter for [CountersPlus](https://github.com/rynan4818/tournament_overlay) that displays the average and standard deviation of the distance between the center of the slashed notes and the saber in cm.
+This is a custom counter for [CountersPlus](https://github.com/Caeden117/CountersPlus) that displays the average and standard deviation of the distance between the center of the slashed notes and the saber in cm.
 
 ![sample](Images/sample.jpg)
 
