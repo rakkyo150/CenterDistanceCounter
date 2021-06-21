@@ -34,7 +34,7 @@ The following is a description of each setting item and its contents. <br>
 |:---|:---|
 |SeparateSaber|Whether to separate left and right sabers or not|
 |DecimalPrecision|How many decimal places to display|
-|CounterType|Choose from both distance and standard deviation, distance only, or standard deviation only|
+|CounterType|Selectable from both distance and standard deviation, distance only, or standard deviation only|
 |EnableLabel|Whether to display "Center Distance Counter" above the counter|
 |LabelFontSize|What is the font size of the "Center Distance Counter" displayed above the counter|
 |FigureFontSize|What is the font size of the counter|
