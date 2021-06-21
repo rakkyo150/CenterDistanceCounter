@@ -3,7 +3,7 @@ using IPA.Config.Stores;
 using IPALogger = IPA.Logging.Logger;
 
 namespace CenterDistanceCounter
-{ 
+{
     [Plugin(RuntimeOptions.DynamicInit)]
     public class Plugin
     {

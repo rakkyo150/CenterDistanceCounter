@@ -1,5 +1,5 @@
-﻿using BeatSaberMarkupLanguage.Attributes;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using BeatSaberMarkupLanguage.Attributes;
 
 namespace CenterDistanceCounter
 {
@@ -36,7 +36,7 @@ namespace CenterDistanceCounter
         }
 
         [UIValue("type")]
-        public List<object> type = new List<object>() { Configuration.counterType.Both.ToString(),Configuration.counterType.Distance.ToString(),Configuration.counterType.StandardDeviation.ToString()};
+        public List<object> type = new List<object>() { Configuration.counterType.Both.ToString(), Configuration.counterType.Distance.ToString(), Configuration.counterType.StandardDeviation.ToString() };
 
 
         [UIValue("EnableLabel")]
