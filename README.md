@@ -2,7 +2,7 @@
 
 # CenterDistanceCounter
 
-斬ったノーツの中心とセイバーの距離の平均と標準偏差をcm単位で表示する[CountersPlus](https://github.com/rynan4818/tournament_overlay)のカスタムカウンターです。
+斬ったノーツの中心とセイバーの距離の平均と標準偏差をcm単位で表示する[CountersPlus](https://github.com/Caeden117/CountersPlus)のカスタムカウンターです。
 
 ![サンプル](Images/sample.jpg)
 
@@ -14,7 +14,7 @@
 - [CounterPlus](https://github.com/Caeden117/CountersPlus)
 
 ## インストール方法
-1. [Releases]()からCenterDistanceCounter.dllをダウンロード
+1. [Releases](https://github.com/rakkyo150/CenterDistanceCounter/releases)からCenterDistanceCounter.dllをダウンロード
 2. CenterDistanceCounter.dllをBeat Saberのインストールフォルダ下のPluginsフォルダに追加
 
 Steam版Beat Saberの場合、Pluginフォルダの場所は<br>
@@ -34,7 +34,7 @@ Beat Saber\UserData\CenterDistanceCounter.json<br>
 |:---|:---|
 |SeparateSaber|左右のセイバーに分けて表示するか否か|
 |DecimalPrecision|小数点以下何桁までを表示するか|
-|CounterType|距離と標準偏差の両方、距離のみ、標準偏差のみから選ぶ|
+|CounterType|距離と標準偏差の両方、距離のみ、標準偏差のみから選択可|
 |EnableLabel|カウンターの上に表示される"Center Distance Counter"の表示をするかどうか|
 |LabelFontSize|カウンターの上に表示される"Center Distance Counter"のフォントサイズをどうするか|
 |FigureFontSize|カウンターのフォントサイズをどうするか|
