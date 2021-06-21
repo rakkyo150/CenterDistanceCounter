@@ -14,7 +14,7 @@ This is a custom counter for [CountersPlus](https://github.com/Caeden117/Counter
 - [CounterPlus](https://github.com/Caeden117/CountersPlus)
 
 ## How to install
-1. download CenterDistanceCounter.dll from [Releases]()
+1. download CenterDistanceCounter.dll from [Releases](https://github.com/rakkyo150/CenterDistanceCounter/releases)
 2. Add CenterDistanceCounter.dll to the Plugins folder under the Beat Saber installation folder.
 
 For the Steam version of Beat Saber, the location of the Plugin folder is<br>
