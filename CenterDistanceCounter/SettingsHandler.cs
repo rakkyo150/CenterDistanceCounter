@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using BeatSaberMarkupLanguage.Attributes;
 
 namespace CenterDistanceCounter
@@ -36,7 +38,7 @@ namespace CenterDistanceCounter
         }
 
         [UIValue("type")]
-        public List<object> type = new List<object>() { Configuration.counterType.Both.ToString(), Configuration.counterType.Distance.ToString(), Configuration.counterType.StandardDeviation.ToString() };
+        public List<object> type = Enum.GetNames(typeof(Configuration.counterType)).ToList<object>();
 
 
         [UIValue("EnableLabel")]
