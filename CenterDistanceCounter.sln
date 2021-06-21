@@ -5,15 +5,15 @@ VisualStudioVersion = 16.0.31402.337
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CenterDistanceCounter", "CenterDistanceCounter\CenterDistanceCounter.csproj", "{9891AFEB-1FC8-4673-83DB-37D3E67BCF26}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{475F572B-E019-49C9-8D17-23D6CE30996D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F92FC822-6696-477B-A5FC-D017AE74B2BB}"
 	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
-		README_EN.md = README_EN.md
+		..\..\..\Downloads\README.md = ..\..\..\Downloads\README.md
+		..\..\..\Downloads\README_EN.md = ..\..\..\Downloads\README_EN.md
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{30A65BC0-8D4E-4B8E-9B20-11DCC7DF84C7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{E5F78815-C647-44C9-8564-E550C639E15E}"
 	ProjectSection(SolutionItems) = preProject
-		Images\sample.jpg = Images\sample.jpg
+		..\..\..\Downloads\Images\sample.jpg = ..\..\..\Downloads\Images\sample.jpg
 	EndProjectSection
 EndProject
 Global
@@ -31,7 +31,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{30A65BC0-8D4E-4B8E-9B20-11DCC7DF84C7} = {475F572B-E019-49C9-8D17-23D6CE30996D}
+		{E5F78815-C647-44C9-8564-E550C639E15E} = {F92FC822-6696-477B-A5FC-D017AE74B2BB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {743A0E58-E368-4E63-B861-409A1ECB5C08}
