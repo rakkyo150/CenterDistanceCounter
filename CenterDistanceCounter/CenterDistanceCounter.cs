@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Globalization;
 using CountersPlus.Counters.Custom;
-using CountersPlus.Counters.Interfaces;
+using CenterDistanceCounter.Interfaces;
 using TMPro;
 using UnityEngine;
 
 namespace CenterDistanceCounter
 {
-    public class CenterDistanceCounter : BasicCustomCounter, INoteEventHandler
+    public class CenterDistanceCounter : BasicCustomCounter, ExpandedINoteEventHandler
     {
 
         private int _notesLeft = 0;
@@ -35,6 +35,8 @@ namespace CenterDistanceCounter
         float x = Configuration.Instance.OffsetX;
         float y = Configuration.Instance.OffsetY;
         float z = Configuration.Instance.OffsetZ;
+
+        int relativization = 1;
 
 
         public override void CounterInit()
@@ -74,17 +76,20 @@ namespace CenterDistanceCounter
             _counterLeft.alignment = leftAlign;
         }
 
-        public void OnNoteMiss(NoteData data) { }
+        public void ExpandedOnNoteMiss(NoteData data) { }
 
-        public void OnNoteCut(NoteData data, NoteCutInfo info)
+        public void ExpandedOnNoteCut(NoteController data, NoteCutInfo info)
         {
-            if (data.colorType == ColorType.None || !info.allIsOK) return;
-            UpdateText(info.cutDistanceToCenter, info.saberType);
+            Debug.Log(info.cutPoint);
+            if (data.noteData.colorType == ColorType.None || !info.allIsOK) return;
+            UpdateText(data.noteTransform,data.noteData.cutDirection,info.cutPoint,info.cutDistanceToCenter, info.saberType);
         }
 
-        public void UpdateText(double cutDistance, SaberType saberType)
+        public void UpdateText(Transform center,NoteCutDirection direction,Vector3 cutPoint,double cutDistance, SaberType saberType)
         {
-            cutDistance *= 100;
+            relativization = Relativize(center, direction, cutPoint);
+
+            cutDistance *= 100*relativization;
             _listBoth.Add(cutDistance);
 
             if (saberType == SaberType.SaberA)
@@ -114,6 +119,20 @@ namespace CenterDistanceCounter
             UpdateText();
         }
 
+        
+        private int Relativize(Transform center, NoteCutDirection direction, Vector3 cutPoint)
+        {
+            if (direction != NoteCutDirection.Left && direction != NoteCutDirection.Right)
+            {
+                if (center.position.x >= cutPoint.x) return 1;
+                else return -1;
+            }
+            else
+            {
+                if (center.position.y <= cutPoint.y) return 1;
+                else return -1;
+            }
+        }
         private void UpdateText()
         {
             if (Configuration.Instance.CounterType == Configuration.counterType.Both.ToString())
