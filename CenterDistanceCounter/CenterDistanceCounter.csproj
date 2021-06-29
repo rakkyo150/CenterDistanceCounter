@@ -174,12 +174,6 @@
   <ItemGroup>
     <Compile Include="CenterDistanceCounter.cs" />
     <Compile Include="Configuration.cs" />
-    <Compile Include="Expanded Event Broadcaster\ExpandedCounterEventBroadcaster.cs" />
-    <Compile Include="Expanded Event Broadcaster\ExpandedEnentBroadcaster.cs" />
-    <Compile Include="Expanded Event Broadcaster\ExpandedNoteEventBroadcaster.cs" />
-    <Compile Include="Installers\ZenjectInstaller.cs" />
-    <Compile Include="Interfaces\ExpandedICounter.cs" />
-    <Compile Include="Interfaces\ExpandedINoteEventHandler.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="Plugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
