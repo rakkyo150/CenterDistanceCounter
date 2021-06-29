@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using CountersPlus.Counters.Custom;
-using CenterDistanceCounter.Interfaces;
+using CountersPlus.Counters.Interfaces;
 using TMPro;
 using UnityEngine;
 
@@ -124,12 +124,12 @@ namespace CenterDistanceCounter
         {
             if (direction != NoteCutDirection.Left && direction != NoteCutDirection.Right)
             {
-                if (center.position.x >= cutPoint.x) return 1;
+                if (center.position.x <= cutPoint.x) return 1;
                 else return -1;
             }
             else
             {
-                if (center.position.y <= cutPoint.y) return 1;
+                if (center.position.y >= cutPoint.y) return 1;
                 else return -1;
             }
         }
