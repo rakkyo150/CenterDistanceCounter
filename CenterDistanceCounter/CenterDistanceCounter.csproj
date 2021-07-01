@@ -198,5 +198,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Images\icon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
