@@ -6,7 +6,7 @@ namespace CenterDistanceCounter
 {
     public class Configuration
     {
-        public enum counterType { Distance, StandardDeviation, Both, }
+        public enum counterType { Both , Relative, Absolute }
 
         public static Configuration Instance { get; set; }
         public virtual bool SeparateSaber { get; set; } = true;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using CountersPlus.Counters.Custom;
-using CountersPlus.Counters.Interfaces;
+using CountersPlus.Counters.Interfaces; 
 using TMPro;
 using UnityEngine;
 
@@ -14,20 +14,23 @@ namespace CenterDistanceCounter
         private int _notesLeft = 0;
         private int _notesRight = 0;
 
-        private double _averageLeft = 0;
-        private double _averageRight = 0;
+        private double _absoluteAverageLeft = 0;
+        private double _absoluteAverageRight = 0;
 
-        private double _totalLeft = 0;
-        private double _totalRight = 0;
-        private double _averageBoth;
+        private double _absoluteTotalLeft = 0;
+        private double _absoluteTotalRight = 0;
+        private double _absoluteAverageBoth;
+
+        private double _relativeAverageLeft = 0;
+        private double _relativeAverageRight = 0;
+
+        private double _relativeTotalLeft = 0;
+        private double _relativeTotalRight = 0;
+        private double _relativeAverageBoth;
 
         private List<double> _listLeft = new List<double>();
         private List<double> _listRight = new List<double>();
         private List<double> _listBoth = new List<double>();
-
-        private double _standardDeviationLeft = 0;
-        private double _standardDeviationRight = 0;
-        private double _standardDeviationBoth;
 
         private TMP_Text _counterLeft;
         private TMP_Text _counterRight;
@@ -36,7 +39,9 @@ namespace CenterDistanceCounter
         float y = Configuration.Instance.OffsetY;
         float z = Configuration.Instance.OffsetZ;
 
-        int relativization = 1;
+        double _relativeValue;
+        double _absoluteValue;
+
 
 
         public override void CounterInit()
@@ -80,41 +85,46 @@ namespace CenterDistanceCounter
 
         public void ExpandedOnNoteCut(NoteController data, NoteCutInfo info)
         {
-            Debug.Log(info.cutPoint);
             if (data.noteData.colorType == ColorType.None || !info.allIsOK) return;
             UpdateText(data.noteTransform,data.noteData.cutDirection,info.cutPoint,info.cutDistanceToCenter, info.saberType);
         }
 
         public void UpdateText(Transform center,NoteCutDirection direction,Vector3 cutPoint,double cutDistance, SaberType saberType)
         {
-            relativization = Relativize(center, direction, cutPoint);
-
-            cutDistance *= 100*relativization;
+            cutDistance *= 100;
+            
+            //For next update
             _listBoth.Add(cutDistance);
+
+            _absoluteValue = cutDistance;
+            _relativeValue = cutDistance*Relativize(center, direction, cutPoint);
+
 
             if (saberType == SaberType.SaberA)
             {
+                //For next update
                 _listLeft.Add(cutDistance);
 
-                _totalLeft = (_averageLeft * _notesLeft) + cutDistance;
+                _absoluteTotalLeft = (_absoluteAverageLeft * _notesLeft) + _absoluteValue;
+                _relativeTotalLeft = (_relativeAverageLeft * _notesLeft) + _relativeValue;
                 _notesLeft++;
-                _averageLeft = _totalLeft / _notesLeft;
-
-                _standardDeviationLeft = StandardDeviation(_listLeft, _averageLeft, _notesLeft);
+                _absoluteAverageLeft = _absoluteTotalLeft / _notesLeft;
+                _relativeAverageLeft = _relativeTotalLeft / _notesLeft;
             }
             else
             {
+                //For next update
                 _listRight.Add(cutDistance);
 
-                _totalRight = (_averageRight * _notesRight) + cutDistance;
+                _absoluteTotalRight = (_absoluteAverageRight * _notesRight) + _absoluteValue;
+                _relativeTotalRight = (_relativeAverageRight * _notesRight) + _relativeValue;
                 _notesRight++;
-                _averageRight = _totalRight / _notesRight;
-
-                _standardDeviationRight = StandardDeviation(_listRight, _averageRight, _notesRight);
+                _absoluteAverageRight = _absoluteTotalRight / _notesRight;
+                _relativeAverageRight = _relativeTotalRight / _notesRight;
             }
 
-            _averageBoth = (_totalLeft + _totalRight) / (_notesLeft + _notesRight);
-            _standardDeviationBoth = StandardDeviation(_listBoth, _averageBoth, _notesLeft + _notesRight);
+            _absoluteAverageBoth = (_absoluteTotalLeft + _absoluteTotalRight) / (_notesLeft + _notesRight);
+            _relativeAverageBoth = (_relativeTotalLeft + _relativeTotalRight) / (_notesLeft + _notesRight);
 
             UpdateText();
         }
@@ -139,38 +149,38 @@ namespace CenterDistanceCounter
             {
                 if (Configuration.Instance.SeparateSaber)
                 {
-                    _counterLeft.text = $"{Format(_averageLeft, Configuration.Instance.DecimalPrecision)}\n{Format(_standardDeviationLeft, Configuration.Instance.DecimalPrecision)}";
-                    _counterRight.text = $"{Format(_averageRight, Configuration.Instance.DecimalPrecision)}\n{Format(_standardDeviationRight, Configuration.Instance.DecimalPrecision)}";
+                    _counterLeft.text = $"{Format(_absoluteAverageLeft, Configuration.Instance.DecimalPrecision)}\n{Format(_relativeAverageLeft, Configuration.Instance.DecimalPrecision)}";
+                    _counterRight.text = $"{Format(_absoluteAverageRight, Configuration.Instance.DecimalPrecision)}\n{Format(_relativeAverageRight, Configuration.Instance.DecimalPrecision)}";
                 }
                 else
                 {
-                    _counterLeft.text = $"{Format(_averageBoth, Configuration.Instance.DecimalPrecision)}\n{Format(_standardDeviationBoth, Configuration.Instance.DecimalPrecision)}";
+                    _counterLeft.text = $"{Format(_absoluteAverageBoth, Configuration.Instance.DecimalPrecision)}\n{Format(_relativeAverageBoth, Configuration.Instance.DecimalPrecision)}";
 
                 }
             }
-            else if (Configuration.Instance.CounterType == Configuration.counterType.Distance.ToString())
+            else if (Configuration.Instance.CounterType == Configuration.counterType.Absolute.ToString())
             {
 
                 if (Configuration.Instance.SeparateSaber)
                 {
-                    _counterLeft.text = Format(_averageLeft, Configuration.Instance.DecimalPrecision);
-                    _counterRight.text = Format(_averageRight, Configuration.Instance.DecimalPrecision);
+                    _counterLeft.text = Format(_absoluteAverageLeft, Configuration.Instance.DecimalPrecision);
+                    _counterRight.text = Format(_absoluteAverageRight, Configuration.Instance.DecimalPrecision);
                 }
                 else
                 {
-                    _counterLeft.text = Format(_averageBoth, Configuration.Instance.DecimalPrecision);
+                    _counterLeft.text = Format(_absoluteAverageBoth, Configuration.Instance.DecimalPrecision);
                 }
             }
-            else if (Configuration.Instance.CounterType == Configuration.counterType.StandardDeviation.ToString())
+            else if (Configuration.Instance.CounterType == Configuration.counterType.Relative.ToString())
             {
                 if (Configuration.Instance.SeparateSaber)
                 {
-                    _counterLeft.text = Format(_standardDeviationLeft, Configuration.Instance.DecimalPrecision);
-                    _counterRight.text = Format(_standardDeviationRight, Configuration.Instance.DecimalPrecision);
+                    _counterLeft.text = Format(_relativeAverageLeft, Configuration.Instance.DecimalPrecision);
+                    _counterRight.text = Format(_relativeAverageRight, Configuration.Instance.DecimalPrecision);
                 }
                 else
                 {
-                    _counterLeft.text = Format(_standardDeviationBoth, Configuration.Instance.DecimalPrecision);
+                    _counterLeft.text = Format(_relativeAverageBoth, Configuration.Instance.DecimalPrecision);
                 }
             }
         }
@@ -178,17 +188,6 @@ namespace CenterDistanceCounter
         private string Format(double CenterDistance, int decimals)
         {
             return CenterDistance.ToString($"F{decimals}", CultureInfo.InvariantCulture);
-        }
-        private double StandardDeviation(List<double> distanceList, double average, int notes)
-        {
-            double beforeDividedTotal = 0;
-
-            foreach (double distance in distanceList)
-            {
-                beforeDividedTotal += Math.Pow(distance - average, 2);
-            }
-
-            return Math.Sqrt(beforeDividedTotal / notes);
         }
 
         public override void CounterDestroy() { }
