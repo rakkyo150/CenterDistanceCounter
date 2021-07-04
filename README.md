@@ -2,9 +2,9 @@
 
 # CenterDistanceCounter
 
-斬ったノーツの中心とセイバーの距離の平均と標準偏差をcm単位で表示する[CountersPlus](https://github.com/Caeden117/CountersPlus)のカスタムカウンターです。
+斬ったノーツの中心と切断点の絶対的距離・相対的距離の平均をcm単位で表示する[CountersPlus](https://github.com/Caeden117/CountersPlus)のカスタムカウンターです。
 
-![サンプル](Images/sample.jpg)
+![サンプル](Images/sample.png)
 
 ## 依存MOD
 
@@ -30,11 +30,11 @@ Beat Saber\UserData\CenterDistanceCounter.json<br>
 から値を書き換えて上書き保存してください。
 
 以下それぞれの設定項目とその内容についてです。<br>
-|項目|内容|
+|項目|説明|
 |:---|:---|
 |SeparateSaber|左右のセイバーに分けて表示するか否か|
 |DecimalPrecision|小数点以下何桁までを表示するか|
-|CounterType|距離と標準偏差の両方、距離のみ、標準偏差のみから選択可|
+|CounterType|絶対値と相対値の両方、絶対値のみ、相対値のみから選択可|
 |EnableLabel|カウンターの上に表示される"Center Distance Counter"の表示をするかどうか|
 |LabelFontSize|カウンターの上に表示される"Center Distance Counter"のフォントサイズをどうするか|
 |FigureFontSize|カウンターのフォントサイズをどうするか|

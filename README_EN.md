@@ -2,9 +2,9 @@
 
 # CenterDistanceCounter
 
-This is a custom counter for [CountersPlus](https://github.com/Caeden117/CountersPlus) that displays the average and standard deviation of the distance between the center of the slashed notes and the saber in cm.
+This is a custom counter for [CountersPlus](https://github.com/Caeden117/CountersPlus) that displays the average of the absolute and relative distance between the center of the slashed notes and the slashed point in cm.
 
-![sample](Images/sample.jpg)
+![sample](Images/sample.png)
 
 ## Dependent Mods
 
@@ -34,7 +34,7 @@ The following is a description of each setting item and its contents. <br>
 |:---|:---|
 |SeparateSaber|Whether to separate left and right sabers or not|
 |DecimalPrecision|How many decimal places to display|
-|CounterType|Selectable from both distance and standard deviation, distance only, or standard deviation only|
+|CounterType|Selectable from both absolute and relative distance, absolute distance only, or relative distance only|
 |EnableLabel|Whether to display "Center Distance Counter" above the counter|
 |LabelFontSize|What is the font size of the "Center Distance Counter" displayed above the counter|
 |FigureFontSize|What is the font size of the counter|
