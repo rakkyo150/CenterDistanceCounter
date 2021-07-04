@@ -137,9 +137,14 @@ namespace CenterDistanceCounter
                 if (center.position.x <= cutPoint.x) return 1;
                 else return -1;
             }
-            else
+            else if(direction==NoteCutDirection.Left)
             {
                 if (center.position.y >= cutPoint.y) return 1;
+                else return -1;
+            }
+            else
+            {
+                if (center.position.y <= cutPoint.y) return 1;
                 else return -1;
             }
         }
