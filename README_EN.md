@@ -11,7 +11,7 @@ This is a custom counter for [CountersPlus](https://github.com/Caeden117/Counter
 - [BSIPA](https://bsmg.github.io/BeatSaber-IPA-Reloaded/)
 - [BeatSaberMarkupLanguage](https://github.com/monkeymanboy/BeatSaberMarkupLanguage)(BSML)
 - [SiraUtil](https://github.com/Auros/SiraUtil)
-- [CounterPlus](https://github.com/Caeden117/CountersPlus)
+- **[CounterPlus](https://github.com/rakkyo150/CountersPlus)(This is NOT the original version)**
 
 ## How to install
 1. download CenterDistanceCounter.dll from [Releases](https://github.com/rakkyo150/CenterDistanceCounter/releases)
