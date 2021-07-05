@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace CenterDistanceCounter
 {
-    public class CenterDistanceCounter : BasicCustomCounter, ExpandedINoteEventHandler
+    public class CenterDistanceCounter : BasicCustomCounter, INoteEventHandler, IDisposable
     {
 
         private int _notesLeft = 0;
@@ -42,7 +42,14 @@ namespace CenterDistanceCounter
         double _relativeValue;
         double _absoluteValue;
 
+        private BeatmapObjectManager _objectManager;
+        private bool disposedValue;
 
+        public CenterDistanceCounter(BeatmapObjectManager objectManager)
+        {
+            this._objectManager = objectManager;
+            this._objectManager.noteWasCutEvent += this.OnNoteCutWasEvent;
+        }
 
         public override void CounterInit()
         {
@@ -81,9 +88,9 @@ namespace CenterDistanceCounter
             _counterLeft.alignment = leftAlign;
         }
 
-        public void ExpandedOnNoteMiss(NoteData data) { }
-
-        public void ExpandedOnNoteCut(NoteController data, NoteCutInfo info)
+        public void OnNoteCut(NoteData data, NoteCutInfo info) { }
+        public void OnNoteMiss(NoteData data) { }
+        public void OnNoteCutWasEvent(NoteController data, in NoteCutInfo info)
         {
             if (data.noteData.colorType == ColorType.None || !info.allIsOK) return;
             UpdateText(data.noteTransform,data.noteData.cutDirection,info.cutPoint,info.cutDistanceToCenter, info.saberType);
@@ -197,6 +204,21 @@ namespace CenterDistanceCounter
 
         public override void CounterDestroy() { }
 
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue) {
+                if (disposing) {
+                    this._objectManager.noteWasCutEvent -= this.OnNoteCutWasEvent;
+                }
+                disposedValue = true;
+            }
+        }
 
+        public void Dispose()
+        {
+            // このコードを変更しないでください。クリーンアップ コードを 'Dispose(bool disposing)' メソッドに記述します
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
     }
 }
