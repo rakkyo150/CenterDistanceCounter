@@ -3,9 +3,9 @@
     "id": "CenterDistanceCounter",
     "name": "CenterDistanceCounter",
     "author": "Rakkyo",
-    "version": "1.0.0",
+    "version": "1.2.1",
     "description": "Adds a counter showing the average of cut distance to center",
-    "gameVersion": "1.16.2",
+    "gameVersion": "1.17.0",
     "dependsOn": {
         "Counters+": "^2.2.1",
         "BeatSaberMarkupLanguage": "^1.5.3",
