@@ -9,4 +9,5 @@
 	<increment-setting text="Offset X" value="OffsetX"  increment="0.1" apply-on-change="true"></increment-setting>
 	<increment-setting text="Offset Y" value="OffsetY"  increment="0.1" apply-on-change="true"></increment-setting>
 	<increment-setting text="Offset Z" value="OffsetZ"  increment="0.1" apply-on-change="true"></increment-setting>
-  </vertical>
+	<checkbox-setting text='Include Chain Notes' apply-on-change='true' value='IncludeChains' hover-hint='Include chain notes in cut calculations. Chains will always give 20 accuracy points.'/>
+</vertical>

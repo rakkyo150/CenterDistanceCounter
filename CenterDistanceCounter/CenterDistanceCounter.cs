@@ -93,7 +93,18 @@ namespace CenterDistanceCounter
         public void OnNoteCutWasEvent(NoteController data, in NoteCutInfo info)
         {
             if (data.noteData.colorType == ColorType.None || !info.allIsOK) return;
-            UpdateText(data.noteTransform,data.noteData.cutDirection,info.cutPoint,info.cutDistanceToCenter, info.saberType);
+            else if (info.noteData.scoringType == NoteData.ScoringType.BurstSliderHead && Configuration.Instance.IncludeChains == false)
+            {
+                return;
+            }
+            else if(info.noteData.scoringType == NoteData.ScoringType.BurstSliderElement && Configuration.Instance.IncludeChains == false)
+            {
+                return;
+            }
+            else
+            {
+                UpdateText(data.noteTransform, data.noteData.cutDirection, info.cutPoint, info.cutDistanceToCenter, info.saberType);
+            }
         }
 
         public void UpdateText(Transform center,NoteCutDirection direction,Vector3 cutPoint,double cutDistance, SaberType saberType)
