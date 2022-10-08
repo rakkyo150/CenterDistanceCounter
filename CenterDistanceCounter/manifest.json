@@ -16,6 +16,7 @@
             "Name": "Center Distance Counter",
             "Description": "Shows the average of cut distance to center",
             "CounterLocation": "CenterDistanceCounter.CenterDistanceCounter",
+            "MultiplayerReady": true,
             "ConfigDefaults": {
                 "Enabled": true,
                 "Position": "AboveCombo",
