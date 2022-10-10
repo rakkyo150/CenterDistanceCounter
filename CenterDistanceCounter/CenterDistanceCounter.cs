@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using BeatSaberMarkupLanguage;
+using CenterDistanceCounter.HarmonyPatches;
 using CountersPlus.Counters.Custom;
 using CountersPlus.Counters.Interfaces; 
 using TMPro;
 using UnityEngine;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace CenterDistanceCounter
 {
@@ -145,6 +148,7 @@ namespace CenterDistanceCounter
             _relativeAverageBoth = (_relativeTotalLeft + _relativeTotalRight) / (_notesLeft + _notesRight);
 
             UpdateText();
+            Logger.log.Info(_counterLeft.rectTransform.ToString());
         }
 
         
@@ -213,7 +217,29 @@ namespace CenterDistanceCounter
             return CenterDistance.ToString($"F{decimals}", CultureInfo.InvariantCulture);
         }
 
-        public override void CounterDestroy() { }
+        public override void CounterDestroy() 
+        {
+            Logger.log.Info("CounterDestroy");
+            Logger.log.Info(this._counterLeft.rectTransform.ToString());
+            SendCounterData();
+        }
+
+        private void SendCounterData()
+        {
+            ResultsViewPatch.leftCount = _counterLeft.text;
+
+            var canvasSettings=CanvasUtility.GetCanvasSettingsFromID(Settings.CanvasID);
+
+
+            ResultsViewPatch.canvasName = canvasSettings.Name;
+            ResultsViewPatch.canvasPosition=canvasSettings.Position;
+            ResultsViewPatch.canvasMatchBaseGameHUDDepth=canvasSettings.MatchBaseGameHUDDepth;
+            ResultsViewPatch.canvasRotation=canvasSettings.Rotation;
+            ResultsViewPatch.canvasSize=canvasSettings.Size;
+            ResultsViewPatch.canvasCurveRadius=canvasSettings.CurveRadius;
+
+            ResultsViewPatch.leftAnchoredPosition = _counterLeft.rectTransform.anchoredPosition;
+        }
 
         protected virtual void Dispose(bool disposing)
         {
